@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Teklifler</h1>
+        <p>All listed quotations are here!</p>
+
+        <a href="/yeniteklifler">Yeni Teklif Ekle!</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Teklif No</th>
+                <th scope="col">Müşteri</th>
+                <th scope="col">Tutar</th>
+                <th scope="col">Açıklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% teklifler.forEach((teklif) => { %>
+            <tr>
+                <td> <a href="/<%= teklif._id %>"> <%= teklif.name %> </a> </td>
+                <td> <%= teklif.customer %> </td>
+                <td> <%= teklif.amount %> </td>
+                <td> <%= teklif.description %> </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('partials/footer') %>
